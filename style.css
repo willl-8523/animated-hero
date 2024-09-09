@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(224, 238, 185);
+  font-family: "Montserrat", Helvetica, sans-serif;
+}
+
+nav {
+  background-color: rgb(224, 238, 185);
+  position: absolute;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(-30px);
+  /* 
+    ease-out => animation ralentit à la fin
+    forwards => animation garde les valuers de fin
+   */
+  animation: apparition 0.4s 1.6s ease-in-out forwards;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 22px;
+  padding: 0 20px;
+  color: #333;
+  cursor: pointer;
+}
+
+.home {
+  width: 100%;
+  height: 100vh;
+  min-height: 930px;
+  display: flex;
+  justify-content: center;
+}
+
+.bloc {
+  width: 800px;
+  height: 100%;
+  /* background: rgb(204, 203, 203); */
+  flex-shrink: 0;
+  padding: 20px 20px 130px 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.bloc img {
+  position: absolute;
+  width: 800px;
+  bottom: 0px;
+  left: 30px;
+  /* Pour avoir accès aux boutons en dessous */
+  pointer-events: none;
+  will-change: transfrom;
+  opacity: 0;
+  transform: translateX(30px);
+  animation: apparition 0.8s 1s ease-in-out forwards;
+}
+
+.bloc h1 {
+  text-transform: uppercase;
+  font-size: 120px;
+  font-family: "Playfair", arial;
+  font-weight: 200;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.bloc h1 span {
+  /* display: inline-block; */
+  display: block;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.bloc h1>span:nth-child(1) {
+  animation: apparition 0.8s 0.2s ease-out forwards;
+}
+
+.bloc h1>span:nth-child(2) {
+  animation: apparition 0.8s 0.4s ease-out forwards;
+}
+
+.bloc h1>span:nth-child(3) {
+  animation: apparition 0.8s 0.6s ease-out forwards;
+}
+
+.bloc p {
+  font-size: 25px;
+  position: relative;
+  left: 10px;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: apparition 0.8s .7s ease-in-out forwards;
+}
+
+.box-btn {
+  margin-top: 100px;
+}
+
+.box-btn button {
+  position: relative;
+  left: 10px;
+  padding: 12px 40px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid gray;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: apparition 0.8s 0.8s ease-in-out forwards;
+}
+
+.box-btn button:nth-child(1) {
+  margin-right: 5px;
+  background-color: transparent;
+}
+
+.box-btn button:nth-child(2) {
+  margin-right: 5px;
+  background-color: #333;
+  color: #f1f1f1;
+}
+
+@keyframes apparition {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
